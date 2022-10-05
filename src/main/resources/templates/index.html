@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+    <h3>Customer Manager</h3>
+    <form method="get" action="search">
+        <input type="text" name="keyword" />
+        <input type="submit" value="Search" />
+    </form>
+    <table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md">
+        <h3><a href="/new">New Customer</a></h3>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer:${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.address}"></td>
+            <td>
+                <a th:href="@{/edit(id=${customer.id})}">Edit</a>
+                <a th:href="@{/delete(id=${customer.id})}">Delete</a>
+<!--                <a href="/edit?id=${customer.id}">Edit</a>-->
+<!--                <a href="/delete?id=${customer.id}">Delete</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
