@@ -11,8 +11,8 @@ public class WebMvcConfig {
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-       // viewResolver.setPrefix("/WEB-INF/views/");
-      //  viewResolver.setSuffix(".jsp");
+       // viewResolver.setPrefix("/WEB-INF/views/");//начальный путь для чтения шаблонов станицы (префикс) используется в @Controller
+      //  viewResolver.setSuffix(".jsp");//расширение файла шаблона jsp (суффикс) используется в @Controller
         viewResolver.setPrefix("/templates/");
         viewResolver.setSuffix(".html");
         return viewResolver;

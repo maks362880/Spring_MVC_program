@@ -1,7 +1,5 @@
 package com.spring_first_program.customer;
 
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +14,11 @@ import java.util.Map;
 @RequestMapping
 public class CustomerController {
 
-    @Autowired
-    private CustomerService customerService;
+    private final CustomerServiceDAO customerService;
+@Autowired
+    public CustomerController(CustomerServiceDAO customerService) {
+        this.customerService = customerService;
+    }
 
     // здесь будут методы обработки
     @GetMapping("/")

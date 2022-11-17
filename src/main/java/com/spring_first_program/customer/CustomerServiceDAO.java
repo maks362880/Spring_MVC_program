@@ -8,8 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class CustomerService {
-    @Autowired CustomerRepository repo;
+public class CustomerServiceDAO {
+    @Autowired
+    CustomerRepositoryDAO repo;
 
     public void save(Customer customer) {
         repo.save(customer);
